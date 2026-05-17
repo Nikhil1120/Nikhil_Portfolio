@@ -3,19 +3,29 @@ import React from 'react';
 const Skills = () => {
     const skillCategories = [
         {
+            title: "💼 Current Stack (In Use)",
+            icon: "fas fa-briefcase",
+            skills: ["⚛️ React", "📱 React Native", "🟢 Node.js", "🚂 Express", "☁️ AWS"]
+        },
+        {
             title: "💻 Languages",
             icon: "fas fa-code",
-            skills: ["🐍 Python", "🌐 HTML5", "🎨 CSS3", "⚡ JavaScript"]
+            skills: ["🐍 Python", "🟢 JavaScript", "🌐 HTML5", "🎨 CSS3"]
+        },
+        {
+            title: "📱 Mobile Development",
+            icon: "fas fa-mobile-alt",
+            skills: ["📱 React Native", "🤖 Android", "🍎 iOS"]
+        },
+        {
+            title: "🧱 Frameworks & Backend",
+            icon: "fas fa-cube",
+            skills: ["⚛️ React.js", "🟢 Node.js", "🚂 Express", "🚀 Django", "🔥 Flask", "⚡ FastAPI"]
         },
         {
             title: "📚 Core Concepts",
-            icon: "fas fa-cube",
+            icon: "fas fa-brain",
             skills: ["🧠 Data Structures", "🏗️ Object-Oriented Programming (OOP)"]
-        },
-        {
-            title: "🧱 Frameworks",
-            icon: "fas fa-cube",
-            skills: ["🚀 Django", "🔥 Flask", "⚡ FastAPI"]
         },
         {
             title: "💾 Databases",
@@ -23,24 +33,19 @@ const Skills = () => {
             skills: ["🛢️ MySQL"]
         },
         {
-            title: "🔧 Version Control",
-            icon: "fas fa-tools",
-            skills: ["🔀 Git", "🐙 GitHub"]
-        },
-        {
-            title: "🌐 APIs & Web Services",
+            title: "🌐 APIs, Cloud & DevOps",
             icon: "fas fa-plug",
-            skills: ["🔗 RESTful APIs", "📮 Postman", "☁️ AWS"]
+            skills: ["🔗 RESTful APIs", "📮 Postman", "☁️ AWS", "🚀 Project Deployment"]
         },
         {
-            title: "🖼️ UI Library",
-            icon: "fas fa-laptop-code",
-            skills: ["⚛️ React.js"]
+            title: "🔧 Version Control & Tools",
+            icon: "fas fa-tools",
+            skills: ["🔀 Git", "🐙 GitHub", "💻 VS Code"]
         },
         {
             title: "📊 Python Libraries",
             icon: "fas fa-chart-bar",
-            skills: ["📐 NumPy", "🧮 Pandas"]
+            skills: ["📐 NumPy", "🧮 Pandas", "📈 Matplotlib"]
         }
     ];
 

@@ -48,6 +48,12 @@ const Navbar = () => {
                     <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="nav-link">
                         Skills
                     </a>
+                    <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="nav-link">
+                        Experience
+                    </a>
+                    <a href="#internships" onClick={(e) => handleNavClick(e, 'internships')} className="nav-link">
+                        Internships
+                    </a>
                     <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="nav-link">
                         Projects
                     </a>

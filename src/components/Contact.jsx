@@ -43,7 +43,7 @@ const Contact = () => {
                     />
                     <textarea
                         name="message"
-                        placeholder="💬 Your Message"
+                        placeholder="💬 Tell me about your project (full-time, part-time, or contract)..."
                         value={formData.message}
                         onChange={handleChange}
                         required
