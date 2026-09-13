@@ -1,79 +1,90 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTheme } from '../context/useTheme';
+
+const links = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'internships', label: 'Internships' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', isMobileMenuOpen);
+    return () => document.body.classList.remove('menu-open');
+  }, [isMobileMenuOpen]);
 
-    const handleNavClick = (e, targetId) => {
-        e.preventDefault();
-        const element = document.getElementById(targetId);
-        if (element) {
-            const offset = 80; // Account for fixed navbar height
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
+  const handleNavClick = (event, targetId) => {
+    event.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80;
+      const top = element.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-        setIsMobileMenuOpen(false);
-    };
+  return (
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="nav-container">
+        <a href="#home" className="nav-logo" onClick={(event) => handleNavClick(event, 'home')}>
+          <span className="logo-mark">NT</span>
+          <span className="logo-text">Nikhil Thipparthi</span>
+        </a>
 
-    return (
-        <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-            <div className="nav-container">
-                <div className="nav-logo">
-                    <a href="#home" onClick={(e) => handleNavClick(e, 'home')}>
-                        <span className="logo-text">Nikhil Thipparthi</span>
-                    </a>
-                </div>
+        <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+          {links.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className="nav-link"
+              onClick={(event) => handleNavClick(event, link.id)}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
 
-                <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-                    <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="nav-link">
-                        Home
-                    </a>
-                    <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="nav-link">
-                        About
-                    </a>
-                    <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')} className="nav-link">
-                        Skills
-                    </a>
-                    <a href="#experience" onClick={(e) => handleNavClick(e, 'experience')} className="nav-link">
-                        Experience
-                    </a>
-                    <a href="#internships" onClick={(e) => handleNavClick(e, 'internships')} className="nav-link">
-                        Internships
-                    </a>
-                    <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="nav-link">
-                        Projects
-                    </a>
-                    <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="nav-link">
-                        Contact
-                    </a>
-                </div>
-
-                <div
-                    className={`nav-toggle ${isMobileMenuOpen ? 'active' : ''}`}
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    );
+        <div className="nav-actions">
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={isDark ? 'Light mode' : 'Dark mode'}
+          >
+            <i className={isDark ? 'fas fa-sun' : 'fas fa-moon'} aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className={`nav-toggle ${isMobileMenuOpen ? 'active' : ''}`}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
-

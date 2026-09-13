@@ -1,63 +1,33 @@
 import React from 'react';
+import { about } from '../data/resume';
 
 const About = () => {
-    return (
-        <section id="about">
-            <div className="container">
-                <h2 data-aos="fade-up">👨‍💻 About Me</h2>
-                <div className="about-content" data-aos="fade-up" data-aos-delay="100">
-                    <p>
-                        💼 I currently work as a <strong>Full Stack Developer at Zaktis IT Solutions</strong> (April 2025
-                        – Present), building production applications across web and mobile—developing React frontends,
-                        Android and iOS apps, and scalable backends with Flask, Django REST APIs, Node.js, and Express. I
-                        also handle project deployment on AWS and collaborate with teams to deliver reliable, real-time
-                        products.
-                    </p>
-                    <p>
-                        🤝 <strong>Open to opportunities:</strong> I am available for <strong>full-time</strong>,{' '}
-                        <strong>part-time</strong>, and <strong>contract-based</strong> engagements—especially for{' '}
-                        <strong>full-stack web</strong> and <strong>mobile (Android & iOS)</strong> projects. Feel free
-                        to reach out via the Contact section below!
-                    </p>
-                    <p>🔧 I specialize in:</p>
-                    <ul>
-                        <li>
-                            ⚛️ <strong>Frontend Development:</strong> Building responsive, dynamic UIs with React, HTML,
-                            CSS, and JavaScript
-                        </li>
-                        <li>
-                            📱 <strong>Mobile Development:</strong> Developing and maintaining applications for Android
-                            and iOS platforms
-                        </li>
-                        <li>
-                            🛠️ <strong>Backend Development:</strong> Creating robust APIs and server-side logic with
-                            Python (Django, Flask), Node.js, and Express
-                        </li>
-                        <li>
-                            🔗 <strong>API Development:</strong> Designing and integrating RESTful APIs using Django REST
-                            Framework and Express, tested with Postman
-                        </li>
-                        <li>
-                            ☁️ <strong>Cloud & Deployment:</strong> Deploying and managing applications on AWS with
-                            production-ready workflows
-                        </li>
-                        <li>
-                            💾 <strong>Database Management:</strong> Working with MySQL for efficient data storage,
-                            retrieval, and backend integration
-                        </li>
-                        <li>
-                            🔧 <strong>Developer Tools:</strong> Git, GitHub, Postman, VS Code, and other tools for
-                            version control, API testing, and collaborative development
-                        </li>
-                        <li>
-                            🧩 <strong>Problem-Solving:</strong> Delivering intuitive, high-performance, and scalable
-                            software solutions end to end
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <section id="about">
+      <div className="container">
+        <header className="section-heading" data-aos="fade-up">
+          <p className="eyebrow">About</p>
+          <h2>Building reliable products end to end</h2>
+        </header>
+        <div className="about-layout">
+          <div className="about-copy" data-aos="fade-up">
+            <p>{about.intro}</p>
+            <p>
+              <strong>Open to opportunities:</strong> {about.openTo}
+            </p>
+          </div>
+          <div className="about-grid" data-aos="fade-up" data-aos-delay="100">
+            {about.specialties.map((item) => (
+              <article key={item.title} className="surface-card about-card">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

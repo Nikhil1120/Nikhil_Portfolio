@@ -1,13 +1,13 @@
 import React from 'react';
 
 const Footer = () => {
-    return (
-        <footer>
-            <div className="container">
-                <p>©️ 2026 Nikhil Thipparthi | All Rights Reserved 💼</p>
-            </div>
-        </footer>
-    );
+  return (
+    <footer>
+      <div className="container">
+        <p>© {new Date().getFullYear()} Nikhil Thipparthi. All rights reserved.</p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
