@@ -88,8 +88,8 @@ export const experiences = [
   {
     company: 'Zaktis IT Solutions',
     role: 'Full Stack Developer',
-    duration: 'April 2025 – Present',
-    current: true,
+    duration: 'April 2025 – July 2026',
+    current: false,
     description:
       'Building production-grade applications: React web frontends, cross-platform Android and iOS apps, and backends with Flask and Django REST APIs. I own AWS deployment and collaborate with teams to ship scalable, real-time solutions.',
     skills: ['React', 'Android & iOS', 'AWS', 'Flask', 'Django REST APIs', 'Full Stack'],
@@ -123,14 +123,22 @@ export const internships = [
 
 export const projects = [
   {
+    title: 'Mini AI E-Commerce Store',
+    description:
+      'E-commerce store with role-based login for customers and admins. An AI chatbot powered by LLM and RAG answers user queries—available products, prices, and newly added items—so shoppers can find catalog details in natural language.',
+    liveUrl: 'https://mini-ai-e-commerce-application-bnmpf5vmx.vercel.app/',
+  },
+  {
     title: 'AI-Powered Email Generator',
     description:
       'Full-stack app that generates professional emails with the Google Gemini API. Users describe purpose, choose tone and length, then copy or download as TXT/PDF.',
+    liveUrl: 'https://nikhil1120.github.io/AI-Email-Generator/',
   },
   {
     title: 'HOMi 365 — Society Management App',
     description:
       'Society management web app built at HOMi 365. Streamlines residential operations with member management, notices, billing, and admin dashboards.',
+    liveUrl: 'https://homi365.in/',
   },
   {
     title: 'Walmart Sales Analysis',

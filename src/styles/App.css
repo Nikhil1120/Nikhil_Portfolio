@@ -590,6 +590,13 @@ section {
   flex: 1;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-top: 12px;
+}
+
 .content-carousel .slick-prev,
 .content-carousel .slick-next {
   z-index: 2;
